@@ -40,34 +40,30 @@ In the same vein, consider a blurry or noisy image as an uncarved stone, from wh
 ### 3.2 Forward Pass
 In order to *"dig out"* the image, we first have to learn how to rebuild the uncarved stone.
 
-$q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; (1 - \beta_t)x_{t-1}, \beta_t I\right)$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?q(x_t%20%7C%20x_{t-1})%20%3D%20%5Cmathcal%7BN%7D%5C!%5Cleft(x_t%3B%20(1%20-%20%5Cbeta_t)x_{t-1}%2C%20%5Cbeta_t%20I%5Cright)" />
+</p>
 
-- $x_0$: Original (clean) data sample  
-- $x_t$: Noisy sample at step $t$  
-- $\beta_t$: Variance (noise level) at step $t$  
-- $I$: Identity matrix
+- <img src="https://latex.codecogs.com/svg.image?x_0" />: Original (clean) data sample  
+- <img src="https://latex.codecogs.com/svg.image?x_t" />: Noisy sample at step *t*  
+- <img src="https://latex.codecogs.com/svg.image?%5Cbeta_t" />: Variance (noise level) at step *t*  
+- <img src="https://latex.codecogs.com/svg.image?I" />: Identity matrix  
 
+Because the forward process is Gaussian and Markov, all the noise additions are linear and independent.  
+- Linear combination of Gaussian (Normal distribution) is still Gaussian.  
+- A Markov process means that the next state depends only on the current state, not on any earlier ones.
 
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?q(x_t%20%7C%20x_0)%20%3D%20%5Cmathcal%7BN%7D%5C!%5Cleft(x_t%3B%20%5Csqrt%7B%5Cbar%7B%5Calpha%7D_t%7D%20x_0%2C%20(1%20-%20%5Cbar%7B%5Calpha%7D_t)I%5Cright)" />
+</p>
 
-Because the forward process is Gaussian and Markov, all the noise additions are linear and independent.
- - Linear combination of Gaussian(Normal distribution) is still Gaussian.
- - A Markov process means that the next state depends only on the current state, not on any earlier ones.
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctext%7Bwhere%7D%20%5Cquad%20%5Cbar%7B%5Calpha%7D_t%20%3D%20%5Cprod_%7Bi%3D1%7D%5Et%20(1%20-%20%5Cbeta_i)" />
+</p>
 
-
-$$
-q(x_t \mid x_0) 
-= \mathcal{N}\!\left(x_t;\, \sqrt{\bar{\alpha}_t}\,x_0,\; (1 - \bar{\alpha}_t) I \right),
-$$
-
-$$
-\text{where} \quad 
-\bar{\alpha}_t = \prod_{i=1}^{t} (1 - \beta_i).
-$$
-
-$$
-x_t = \sqrt{\bar{\alpha}_t}\,x_0 + \sqrt{1 - \bar{\alpha}_t}\,\epsilon, 
-\quad \epsilon \sim \mathcal{N}(0, I)
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?x_t%20%3D%20%5Csqrt%7B%5Cbar%7B%5Calpha%7D_t%7D%20x_0%20%2B%20%5Csqrt%7B1%20-%20%5Cbar%7B%5Calpha%7D_t%7D%20%5Cepsilon%2C%20%5Cquad%20%5Cepsilon%20%5Csim%20%5Cmathcal%7BN%7D(0%2C%20I)" />
+</p>
 
 ![alt text](pics/forward_diffusion_cifar10.png)
 ### 3.3 Reverse Pass
