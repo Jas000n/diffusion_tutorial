@@ -47,11 +47,26 @@ $q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; (1 - \beta_t)x_{t-1},\, \beta_t I
 - $\beta_t$: Variance (noise level) at step $t$  
 - $I$: Identity matrix
 
-协方差需要学一下
+
 
 Because the forward process is Gaussian and Markov, all the noise additions are linear and independent.
  - Linear combination of Gaussian(Normal distribution) is still Gaussian.
  - A Markov process means that the next state depends only on the current state, not on any earlier ones.
+$$
+q(x_t \mid x_0) 
+= \mathcal{N}\!\left(x_t;\, \sqrt{\bar{\alpha}_t}\,x_0,\; (1 - \bar{\alpha}_t) I \right),
+$$
+
+$$
+\text{where} \quad 
+\bar{\alpha}_t = \prod_{i=1}^{t} (1 - \beta_i).
+$$
+
+$$
+x_t = \sqrt{\bar{\alpha}_t}\,x_0 + \sqrt{1 - \bar{\alpha}_t}\,\epsilon, 
+\quad \epsilon \sim \mathcal{N}(0, I)
+$$
+
 ![alt text](pics/forward_diffusion_cifar10.png)
 ### 3.3 Reverse Pass
 We will have the model learning this process, but reversely.
