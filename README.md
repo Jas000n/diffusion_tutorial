@@ -40,7 +40,7 @@ In the same vein, consider a blurry or noisy image as an uncarved stone, from wh
 ### 3.2 Forward Pass
 In order to *"dig out"* the image, we first have to learn how to rebuild the uncarved stone.
 
-$q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; (1 - \beta_t)x_{t-1},\, \beta_t I\right)$
+$q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; (1 - \beta_t)x_{t-1}, \beta_t I\right)$
 
 - $x_0$: Original (clean) data sample  
 - $x_t$: Noisy sample at step $t$  
@@ -52,6 +52,8 @@ $q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; (1 - \beta_t)x_{t-1},\, \beta_t I
 Because the forward process is Gaussian and Markov, all the noise additions are linear and independent.
  - Linear combination of Gaussian(Normal distribution) is still Gaussian.
  - A Markov process means that the next state depends only on the current state, not on any earlier ones.
+
+
 $$
 q(x_t \mid x_0) 
 = \mathcal{N}\!\left(x_t;\, \sqrt{\bar{\alpha}_t}\,x_0,\; (1 - \bar{\alpha}_t) I \right),
