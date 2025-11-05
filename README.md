@@ -74,11 +74,6 @@ We will have the model learning this process, but reversely.
 
 But in general, all generative model could work, e.g. DiT.
 ## 💪 4. Get your hands dirty
-```
-git clone https://github.com/Jas000n/diffusion-tutorial.git
-cd diffusion-tutorial
-pip install -r requirements.txt
-```
 #### 4.1 MNIST Tutorial (Lightweight)
 > 💡 For users with entry level GPU or without a GPU, or if you just want to understand the diffusion core idea.
 ```
