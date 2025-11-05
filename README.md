@@ -1,6 +1,8 @@
 # 🧠 Diffusion Policy Tutorials: MNIST & CIFAR-10
 
-![GIF](pics/demo.gif)
+
+<img src="pics/demo.gif" width="100">
+
 > A minimal, reproducible tutorial for learning diffusion policies — with two runnable examples:  
 > 
 > - ✨ **MNIST** (Lightweight) — Runs on entry-level GPUs or CPUs, using a minimal UNet architecture for grayscale digit generation.
