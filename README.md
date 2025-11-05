@@ -1,4 +1,4 @@
-# 🧠 Diffusion Policy Tutorials: MNIST & CIFAR-10
+# 🧠 Diffusion Tutorials: MNIST & CIFAR-10
 
 
 <img src="pics/demo.gif" width="100">
