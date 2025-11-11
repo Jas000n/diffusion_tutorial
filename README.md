@@ -30,6 +30,7 @@ You’ll learn:
 git clone https://github.com/yourname/diffusion-tutorial.git
 cd diffusion-tutorial
 conda create -n diffusion python=3.10
+conda activate diffusion
 pip install -r requirements.txt
 ```
 ## 🧩 3. About Diffusion
